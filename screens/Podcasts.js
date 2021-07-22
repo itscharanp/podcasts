@@ -3,75 +3,49 @@ import { StyleSheet, Text, View,SafeAreaView ,Image,Button,ScrollView, Touchable
 import { icons, images, SIZES, COLORS, FONTS} from '../constants';
 import { OrderDelivery } from ".";
 import { useNavigation } from '@react-navigation/native';
+import Playlist from "./Playlist";
+
+
 const Podcasts = ({navigation}) => {
 
     
   return (
-   
-    <SafeAreaView style={[styles.container, {
-        // Try setting `flexDirection` to `"row"`.
-        flexDirection: "column"
-      }]}>
-  
-  <View style={{ flex: 1.5, backgroundColor: "#3399FF" }} >
-<View style={{ flex: 1, backgroundColor:"#3399FF",paddingHorizontal:10,justifyContent:"center",color:"white"}} ><TouchableOpacity onPress={() => navigation.push('Tabs')
-      }><Text style={{fontSize:12,color:"white"}}>Back</Text></TouchableOpacity></View>
+    <SafeAreaView style={styles.container}>
+  <View style={styles.parent1} >
+      <View style={styles.child1} ><TouchableOpacity onPress={() => navigation.push('Tabs')}><Text style={styles.child2}>Back</Text></TouchableOpacity></View>
       
       
-      <View style={{ flex: 3, backgroundColor: "#3399FF",flexDirection:"row"}}>
-        <View style={{ flex: 1, backgroundColor: "#3399FF"}}></View>
-        <View style={{ flex: 2.6, backgroundColor: "#3399FF",justifyContent:"flex-start"}}><Image 
+      <View style={styles.child3}>
+        <View style={styles.child4}></View>
+        <View style={styles.inchild1}><Image 
                         source={images.gma}
                         resizeMode="contain"
-                        style={{
-                            width: 220,
-                            height: 170,
-                            borderRadius:10
-                        }} /></View>
-        <View style={{ flex: 1, backgroundColor: "#3399FF"}}></View>
+                        style={styles.img2} /></View>
+        <View style={styles.inchild2}></View>
       </View>
       
 
 
-      <View style={{ flex: 1, flexDirection:"row", backgroundColor: "#3399FF"}}>
-       <View style={{ flex: 2, backgroundColor: "#3399FF"}} ><Image 
+      <View style={styles.child5}>
+       <View style={styles.inchild5} ><Image 
                         source={images.option}
                         resizeMode="contain"
-                        style={{
-                            width: 50,
-                            height: 50,
-                            borderRadius:10,
-                            paddingHorizontal:50
-                        }} /></View>
-       <View style={{ flex: 3, backgroundColor: "#3399FF",justifyContent:"center",paddingHorizontal:25}} ><Text style={{fontSize:13,color:"white"}}> Good Morning America</Text><Text style={{fontSize:9,paddingHorizontal:40,margin:"2%",color:"white"}}> Mike o conel</Text></View>
-        <View style={{ flex: 2, backgroundColor: "#3399FF",justifyContent:"center"}} ><Image 
+                        style={styles.img} /></View>
+       <View style={styles.inchild3} ><Text style={styles.txt1}> Good Morning America</Text><Text style={styles.txt2}> Mike o conel</Text></View>
+        <View style={styles.inchild4} ><Image 
                         source={images.play}
                         resizeMode="contain"
-                        style={{
-                            width: 50,
-                            height: 50,
-                            borderRadius:10,
-                            paddingHorizontal:50
-                        }} /></View>
+                        style={styles.img} /></View>
       </View>
       
-      <View style={{ flex: 1, backgroundColor: "#3399FF"}} ></View> 
+      <View style={styles.child6} ></View> 
       </View>
 
-      <View style={{ flex: 1.3, backgroundColor: "#3399FF" }} >
-          <View style={{ flex: 1, backgroundColor: "#F5F5F5",borderTopLeftRadius:20, borderTopRightRadius:20}} >
-          <OrderDelivery/>    
+      <View style={styles.parent2} >
+          <View style={styles.list} >
+          <Playlist/>    
           </View> 
-      
-       </View>
-                
-
-     
-     
-
-
-
-      
+       </View>      
       </SafeAreaView>
     
     
@@ -84,7 +58,35 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     backgroundColor:"white",
+    flexDirection: "column"
   },
+  parent1:{
+    flex: 1.5, backgroundColor: "#3399FF" 
+  },
+  child1:{flex: 1, backgroundColor:"#3399FF",paddingHorizontal:10,justifyContent:"center",color:"white"},
+  child2:{fontSize:12,color:"white"},
+  child3:{flex: 3, backgroundColor: "#3399FF",flexDirection:"row"},
+  child4:{ flex: 1, backgroundColor: "#3399FF"},
+  child5:{flex: 1, flexDirection:"row", backgroundColor: "#3399FF"},
+  child6:{flex: 1, flexDirection:"row", backgroundColor: "#3399FF"},
+  inchild1:{flex: 2.6, backgroundColor: "#3399FF",justifyContent:"flex-start"},
+  inchild2:{flex: 1, backgroundColor: "#3399FF"},
+  inchild3:{flex: 3, backgroundColor: "#3399FF",justifyContent:"center",paddingHorizontal:25},
+  inchild4:{flex: 2, backgroundColor: "#3399FF",justifyContent:"center"},
+  inchild5:{flex: 2, backgroundColor: "#3399FF"},
+  txt1:{fontSize:13,color:"white"},
+  txt2:{fontSize:9,paddingHorizontal:40,margin:"2%",color:"white"},
+  img:{ width: 50,
+    height: 50,
+    borderRadius:10,
+    paddingHorizontal:50},
+  img2:{ width: 220,
+    height: 170,
+    borderRadius:10},  
+  parent2:{flex: 1.3, backgroundColor: "#3399FF" },
+  list:{
+    flex: 1, backgroundColor: "#F5F5F5",borderTopLeftRadius:20, borderTopRightRadius:20
+  }
 });
 
 export default Podcasts;

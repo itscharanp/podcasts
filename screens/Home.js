@@ -77,20 +77,12 @@ const DATA = [
 
 function renderHeader() {
     return (
-        <View style={{ flexDirection: 'row', height: 50 }}>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={styles.header1}>
+            <View style={styles.header2}>
                 <TextInput
                     placeholder="Search..."
                     placeholderTextColor={COLORS.black}
-                    style={{
-                        width: '90%',
-                        height: "80%",
-                        backgroundColor: COLORS.thrid,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        textAlign:'center',
-                        borderRadius: SIZES.radius
-                    }}
+                    style={styles.header3}
                 />
             </View>
         </View>
@@ -111,9 +103,9 @@ function renderHeader() {
 
 function renderMainCategories() {
     return (
-        <View style={{ padding: SIZES.padding * 2 }}>
-            <Text style={{ ...FONTS.h1 }}>Podcasts</Text>
-            <Text style={{ ...FONTS.h1 , color:COLORS.blue,marginTop:5, }}>Discover</Text>
+        <View style={styles.main1}>
+            <Text style={styles.main2}>Podcasts</Text>
+            <Text style={styles.main3}>Discover</Text>
         </View>
     )
 }    
@@ -139,7 +131,7 @@ const Home = ({navigation}) => {
                 {renderHeader()}
 
             <TouchableOpacity onPress={() => navigation.push('Podcasts')}>    
-            <FlatList style={{marginTop:20,fontSize:20}} nestedScrollEnabled
+            <FlatList style={styles.flist} nestedScrollEnabled
                 data={DATA}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
@@ -174,6 +166,36 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 3,
         elevation: 1,
+    },
+    header1:{
+      flexDirection: 'row', 
+      height: 50
+    },
+    header2:{
+      flex: 1,
+       alignItems: 'center',
+      justifyContent: 'center' 
+    },
+    header3:{
+      width: '90%',
+      height: "80%",
+      backgroundColor: COLORS.thrid,
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign:'center',
+      borderRadius: SIZES.radius
+    },
+    main1:{
+      padding: SIZES.padding * 2 
+    },
+    main2:{
+      ...FONTS.h1
+    },
+    main3:{
+      ...FONTS.h1 , color:COLORS.blue,marginTop:5
+    },
+    flist:{
+      marginTop:20,fontSize:20
     }
 })
 

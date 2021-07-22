@@ -2,11 +2,12 @@ import React from 'react';
 import {
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    StyleSheet
 } from 'react-native';
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs";
 
-import { Home , OrderDelivery , Restaurant,Podcast} from "../screens"
+import { Home , Playlist, Profile} from "../screens"
 
 
 import { COLORS, icons } from "../constants"
@@ -24,7 +25,7 @@ const Tabs = () => {
 
         <Tab.Screen
                name="Playlist"
-               component={OrderDelivery}
+               component={Playlist}
                options={{
 
                      
@@ -32,11 +33,7 @@ const Tabs = () => {
                         <Image 
                         source={icons.list}
                         resizeMode="contain"
-                        style={{
-                            width: 25,
-                            height: 25,
-                            tintColor: focused ? COLORS.black : COLORS.secondary
-                        }}
+                        style={[styles.container,{tintColor: focused ? COLORS.black : COLORS.secondary}]}
                     
                     />   )
                }} 
@@ -50,11 +47,7 @@ const Tabs = () => {
                         <Image 
                         source={icons.search}
                         resizeMode="contain"
-                        style={{
-                            width: 25,
-                            height: 25,
-                            tintColor: focused ? COLORS.black : COLORS.secondary
-                        }}
+                        style={[styles.container,{tintColor: focused ? COLORS.black : COLORS.secondary}]}
                     
                     />   )
                }} 
@@ -64,17 +57,13 @@ const Tabs = () => {
 
             <Tab.Screen
                name="Profile"
-               component={Restaurant}
+               component={Profile}
                options={{
                     tabBarIcon:({focused}) =>(
                         <Image 
                         source={icons.user}
                         resizeMode="contain"
-                        style={{
-                            width: 25,
-                            height: 25,
-                            tintColor: focused ? COLORS.black : COLORS.secondary
-                        }}
+                        style={[styles.container,{tintColor: focused ? COLORS.black : COLORS.secondary}]}
                     
                     />   )
                }} 
@@ -94,6 +83,14 @@ const Tabs = () => {
 
     )
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        width: 25,
+        height: 25
+    },
+  });
 
 export default Tabs;
 

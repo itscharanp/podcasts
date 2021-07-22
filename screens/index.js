@@ -1,10 +1,9 @@
 import Home from "./Home";
-import Restaurant from "./Restaurant";
-import OrderDelivery from "./OrderDelivery";
-
+import Profile from "./Profile";
+import Playlist from "./Playlist";
 
 export{
     Home,
-    Restaurant,
-    OrderDelivery
+    Profile,
+    Playlist
 }
