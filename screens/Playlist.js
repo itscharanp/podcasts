@@ -63,11 +63,7 @@ const DATA = [
       <Image 
                         source={icons.add}
                         resizeMode="contain"
-                        style={{
-                            width: 10,
-                            height: 10,
-                            alignSelf: 'flex-end'
-                        }}
+                        style={styles.img6}
                     
                     /> 
     </View>
@@ -195,8 +191,10 @@ const styles = StyleSheet.create({
     },
     flist:{
       marginTop:20,fontSize:20
-    }
-    
+    },
+    img6:{width: 10,
+      height: 10,
+      alignSelf: 'flex-end'},    
 
 })
 
